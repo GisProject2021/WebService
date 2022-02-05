@@ -12,6 +12,21 @@ url : "/Incidents"
 url : "/AddIncident"
 
 input: un fichier json 
+exemple: {
+        "secteur_id": 3,
+        "position": {
+            "type": "Point",
+            "coordinates": [
+                -8.17001438,
+                33.28116406
+            ]
+        },
+        "description": null,
+        "statut": null,
+        "date_declaration": null,
+        "type_incident": null,
+        "declarant": "ABC2"
+    }
 
 
 
