@@ -7,11 +7,11 @@ url : "/Incidents"
 
 
 
-2-----fct: Ajouter un incident
+2-----fct: Ajouter un incident 
 
 url : "/AddIncident"
 
-input: un fichier json 
+input: un fichier json en spécifiant que la requête HTTP est POST 
 exemple: {
         "secteur_id": 3,
         "position": {
@@ -34,7 +34,7 @@ exemple: {
 
 url : "/incidentsMobile/{IMEI du déclarant}"
 
-input: hadak code dial telephone dialo
+input: hadak code dial telephone dialo en spécifiant que la requête HTTP est GET
 
 
 
