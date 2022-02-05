@@ -1,24 +1,30 @@
 # WebService
  Normalement f local hada howa url : "http://localhost:8007/Incidents"
 
-fct: récupérer la liste des incidents pour l'app web:
+1-----fct: récupérer la liste des incidents pour l'app web:
 
 url : "/Incidents"
 
-fct: Ajouter un incident
+
+
+2-----fct: Ajouter un incident
 
 url : "/AddIncident"
 
 input: un fichier json 
 
-fct: récupérer la liste des incidents pour un déclarant donné
+
+
+3-----fct: récupérer la liste des incidents pour un déclarant donné
 
 url : "/incidentsMobile/{IMEI du déclarant}"
 
 input: hadak code dial telephone dialo
 
 
-fct: supprimer un incident
+
+
+4----fct: supprimer un incident
 
 url : "/Incident/{id de l'accident}"
 
