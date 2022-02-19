@@ -16,8 +16,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "administrateur")
-public class Admin implements Serializable{
+@Table(name = "professionnel")
+public class Prof implements Serializable{
 	
 private static final long serialVersionUID = 1L;
 	
@@ -34,6 +34,12 @@ private static final long serialVersionUID = 1L;
     @Column(name = "prenom")
     private String prenom;
     
+    @Column(name = "secteur")
+    private String secteur;
+    
+    @Column(name = "organisme")
+    private String organisme;
+    
     @Column(name = "telephone")
     private String telephone;
     
@@ -42,6 +48,7 @@ private static final long serialVersionUID = 1L;
     
     @Column(name = "mot_de_passe")
     private String mot_de_passe;
+    
 
 
 }

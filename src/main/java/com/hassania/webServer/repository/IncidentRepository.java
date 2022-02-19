@@ -9,5 +9,7 @@ import com.hassania.webServer.model.Incident;
 public interface IncidentRepository extends CrudRepository<Incident, Integer> {
 	
 	public Iterable<Incident> findByDeclarant(String declarant);
+	public Iterable<Incident> findByStatut(String statut);
+	public Iterable<Incident> findBySecteur(String secteur);
 
 }

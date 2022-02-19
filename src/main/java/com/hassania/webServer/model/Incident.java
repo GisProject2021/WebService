@@ -31,8 +31,8 @@ public class Incident implements Serializable{
 	@Column(name = "id")
     private Integer id;
 
-    @Column(name = "secteur_id")
-    private Integer secteur_id;
+    @Column(name = "secteur")
+    private String secteur ;
 
     //, columnDefinition = "geometry(Point,4326)"
     @Column(name = "geom")
@@ -54,6 +54,9 @@ public class Incident implements Serializable{
     
     @Column(name = "declarant")
     private String declarant;
+    
+    @Column(name = "img")
+    private Byte img;
     
     
 

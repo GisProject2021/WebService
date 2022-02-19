@@ -20,6 +20,14 @@ public class IncidentService {
         return IncidentRepository.findByDeclarant(declarant);
     }
     
+    public Iterable<Incident> getIncidentsSecteur(final String secteur) {
+        return IncidentRepository.findBySecteur(secteur);
+    }
+    
+    public Iterable<Incident> getIncidentsStatut(final String statut) {
+        return IncidentRepository.findByStatut(statut);
+    }
+    
     
     
     public Optional<Incident> getIncident(final Integer id) {
