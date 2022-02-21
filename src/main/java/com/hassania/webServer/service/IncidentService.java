@@ -16,7 +16,7 @@ public class IncidentService {
     
     private IncidentRepository IncidentRepository;
 
-    public Iterable<Incident> getIncidentsDec(final String declarant) {
+    public Iterable<Incident> getIncidentsDeclarant(final String declarant) {
         return IncidentRepository.findByDeclarant(declarant);
     }
     

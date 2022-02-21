@@ -2,7 +2,7 @@ package com.hassania.webServer.controller;
 
 import java.util.Optional;
 
-import org.geolatte.geom.Point;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-
 import com.hassania.webServer.model.Incident;
-import com.hassania.webServer.model.Prof;
 import com.hassania.webServer.service.IncidentService;
 
 @CrossOrigin(origins ="http://localhost:3000")
@@ -28,25 +25,31 @@ public class IncidentController {
 
 	    
 	    @GetMapping("/Incidents")
-	    
 	    public Iterable<Incident> getIncidents() {
 	        return IncidentService.getIncidents();
 	    }
+	   //get incident by id
+	    @GetMapping("/Incident/{id}")
+	    public Optional<Incident> getIncidentById(@PathVariable int id) {
+	    	return IncidentService.getIncident(id);
+	    }
 	    
-	    
+	    //Ajouter un incident
 	    @RequestMapping(value = "/AddIncident", method = RequestMethod.POST)
 		public Incident createIncident(@RequestBody Incident Incident) {
 			return IncidentService.saveIncident(Incident);
 		}
 	    
-	    @DeleteMapping("/Incident/{id}")
+	    //Supprimer un incident
+	    @DeleteMapping("/DeleteIncident/{id}")
 		public void deleteIncident(@PathVariable("id") final Integer id) {
 			IncidentService.deleteIncident(id);
 		}
 	    
+	    //Afficher les incidents d'un déclarant
 	    @RequestMapping(value = "/incidentsMobile/{declarant}", method = RequestMethod.GET)
 	    public Iterable<Incident> getIncidentsM(@PathVariable("declarant") final String declarant) {
-	    	return IncidentService.getIncidentsDec(declarant);
+	    	return IncidentService.getIncidentsDeclarant(declarant);
 			
 		}
 	    
@@ -56,7 +59,7 @@ public class IncidentController {
 			
 		}
 	    
-	    @RequestMapping(value = "/incidentsMobile/{statut}", method = RequestMethod.GET)
+	    @RequestMapping(value = "/filtreStatut/{statut}", method = RequestMethod.GET)
 	    public Iterable<Incident> getIncidentsStatut(@PathVariable("statut") final String statut) {
 	    	return IncidentService.getIncidentsStatut(statut);
 			
@@ -69,9 +72,9 @@ public class IncidentController {
 			if(e.isPresent()) {
 				Incident currentIncident = e.get();
 				
-				String secteur = Incident.getSecteur();
-				if(secteur != null) {
-					currentIncident.setSecteur(secteur);
+				String statut = Incident.getStatut();
+				if(statut != null) {
+					currentIncident.setStatut(statut);
 				}
 				
 				IncidentService.saveIncident(currentIncident);

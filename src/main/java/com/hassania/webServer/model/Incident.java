@@ -55,8 +55,8 @@ public class Incident implements Serializable{
     @Column(name = "declarant")
     private String declarant;
     
-    @Column(name = "img")
-    private Byte img;
+    //@Column(name = "img")
+    //private Byte img;
     
     
 

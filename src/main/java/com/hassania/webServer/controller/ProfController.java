@@ -31,6 +31,11 @@ public class ProfController {
 	        return ProfService.getProfs();
 	    }
 	    
+	    //get professionnel by id
+	    @GetMapping("/Prof/{id}")
+	    public Optional<Prof> getProfById(@PathVariable int id) {
+	    	return ProfService.getProf(id);
+	    }
 	    
 	    //Ajouter un professionel
 	    @RequestMapping(value = "/AddProf", method = RequestMethod.POST)
